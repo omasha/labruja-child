@@ -1,0 +1,200 @@
+/*
+ Theme Name:   La Bruja Child
+ Theme URI:    https://labruja.local
+ Description:  A child theme for Twenty Seventeen
+ Author:       Your Name
+ Author URI:   https://labruja.local
+ Template:     twentyseventeen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  labruja-child
+*/
+
+/* Add your custom styles below this line */
+
+/* Remove height and background-attachment for panel images */
+.panel-image {
+  height: auto !important;
+  background-attachment: initial !important;
+  background-image: none !important;
+  /* position: static !important; */
+}
+
+/* Style panel images as regular img tags */
+.panel-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Panel images in sections - below title in left column */
+.twentyseventeen-panel .entry-header .panel-image {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/* Hide the panel-image-prop div if it exists */
+.panel-image-prop {
+  display: none !important;
+}
+
+/* Ensure homepage featured image stays full width */
+.twentyseventeen-panel:first-child .panel-image {
+  position: static;
+}
+
+.homepage.wrap {
+  padding-top: 3rem;
+  max-width: 950px;
+}
+
+/* Homepage featured image */
+.homepage-featured-image {
+  margin-bottom: 0;
+}
+
+.homepage-featured-image .panel-image {
+  margin: 0;
+}
+
+/* Homepage sidebar widget area */
+/* aside.homepage-sidebar {
+  padding: 0;
+} */
+
+aside.homepage-sidebar:before,
+aside.homepage-sidebar:after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Stack widgets vertically in the sidebar */
+aside.homepage-sidebar .widget {
+  margin-bottom: 2em;
+}
+
+aside.homepage-sidebar .widget:last-child {
+  margin-bottom: 0;
+}
+
+.homepage-footer-widget-area .wrap {
+  max-width: 950px;
+}
+
+aside.homepage-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+aside.homepage-footer:before,
+aside.homepage-footer:after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Desktop: 2 columns for footer widgets */
+@media screen and (min-width: 48em) {
+  aside.homepage-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Homepage panels - always centered and full width */
+.homepage-panels-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+}
+
+.homepage-panels-wrapper .site-main {
+  width: 100%;
+}
+
+/* Reduce top padding for panels and add same border as footer */
+.twentyseventeen-front-page .twentyseventeen-panel {
+  padding-top: 0;
+  border-top: 1px solid #494949;
+}
+
+/* Remove border from first panel (homepage content) */
+.twentyseventeen-front-page .twentyseventeen-panel:first-child {
+  border-top: none;
+}
+
+/* Homepage footer widget area */
+.homepage-footer-widget-area {
+  padding: 1em 0;
+}
+.home #secondary {
+  padding-bottom: 0;
+}
+.home #secondary .widget {
+  padding-bottom: 1.5em;
+}
+
+.homepage-footer-widget-area .widget {
+  border-bottom: 1px solid #494949;
+}
+
+.homepage-footer-widget-area .widget:last-child {
+  border-bottom: none;
+}
+/* Footer widgets - grid layout */
+.site-footer .widget-area.footer-widget-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  padding: 2em 0;
+}
+.homepage-footer .widget {
+  padding-bottom: 1.5em;
+}
+
+.site-footer .widget-area.footer-widget-grid:before,
+.site-footer .widget-area.footer-widget-grid:after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 48em) {
+  /* Reduce panel content wrap top padding on desktop */
+  .panel-content > .wrap {
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+  .page.page-one-column .entry-header,
+  .twentyseventeen-front-page.page-one-column .entry-header,
+  .archive.page-one-column:not(.has-sidebar) .page-header {
+    margin-bottom: 1rem;
+  }
+  .home .site-footer {
+    margin-top: 0;
+  }
+  .home.page-one-column .panel-content .wrap {
+    max-width: 950px;
+  }
+  aside.homepage-footer {
+    max-width: unset;
+  }
+  /* Homepage footer widget area */
+  .homepage-footer-widget-area {
+    padding: 2em 0;
+  }
+
+  /* Remove borders on desktop */
+  .homepage-footer-widget-area .widget {
+    border-bottom: none;
+  }
+
+  /* Footer widgets grid - auto-fill columns on desktop, min 250px per widget */
+  .site-footer .widget-area.footer-widget-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
