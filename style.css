@@ -5,13 +5,22 @@
  Author:       Your Name
  Author URI:   https://labruja.local
  Template:     twentyseventeen
- Version:      1.0.0
+ Version:      1.0.1
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  labruja-child
 */
 
 /* Add your custom styles below this line */
+
+/* Normalize h2.entry-title across home page and panel sections */
+.page h2.entry-title,
+.page .panel-content h2.entry-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
 
 /* Remove height and background-attachment for panel images */
 .panel-image {
@@ -71,11 +80,20 @@ aside.homepage-sidebar:after {
 
 /* Stack widgets vertically in the sidebar */
 aside.homepage-sidebar .widget {
-  margin-bottom: 2em;
+  padding-bottom: 0;
+  margin-bottom: 1em;
 }
 
 aside.homepage-sidebar .widget:last-child {
   margin-bottom: 0;
+}
+
+aside.homepage-sidebar h2.widget-title,
+aside#secondary.widget-area h2.widget-title,
+aside.homepage-footer h2.widget-title {
+  margin-bottom: 1em;
+  font-weight: 600;
+  font-size: 0.8rem;
 }
 
 .homepage-footer-widget-area .wrap {
@@ -96,10 +114,12 @@ aside.homepage-footer:after {
   display: none !important;
 }
 
-/* Desktop: 2 columns for footer widgets */
+/* Desktop: 2 columns for footer widgets, mirroring 58%/36% content+sidebar split */
 @media screen and (min-width: 48em) {
   aside.homepage-footer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 58fr 36fr;
+    column-gap: 6%;
+    row-gap: 2em;
   }
 }
 
@@ -125,6 +145,39 @@ aside.homepage-footer:after {
 /* Remove border from first panel (homepage content) */
 .twentyseventeen-front-page .twentyseventeen-panel:first-child {
   border-top: none;
+}
+
+/* Widget with styled links */
+.widget.widget-links {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.widget.widget-links a {
+  color: #c8a96e;
+  text-decoration: none;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.35);
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.widget.widget-links a:hover,
+.widget.widget-links a:focus {
+  color: #e0c48a;
+  box-shadow: none;
+  border-bottom-color: #e0c48a;
+}
+
+/* Special event widget */
+.widget-special-event {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #c8a96e;
+  padding: 1em 1.2em;
+}
+
+.widget-special-event h2.widget-title {
+  color: #c8a96e;
 }
 
 /* Homepage footer widget area */
@@ -185,7 +238,7 @@ aside.homepage-footer:after {
   }
   /* Homepage footer widget area */
   .homepage-footer-widget-area {
-    padding: 2em 0;
+    padding: 1em 0;
   }
 
   /* Remove borders on desktop */
